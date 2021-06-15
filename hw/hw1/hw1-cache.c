@@ -50,13 +50,15 @@ int IsInteger ( char * data )
         itr++;
     }
 
-    // check if length of int positive nonzero
-    if ( itr - data )
-    {
-        return 1;
-    }
+    // int length = itr - data;
 
-    return 0;
+    // check if length of int positive nonzero
+    // if ( length > 0 && length < 9 )
+    // {
+    //     return 1;
+    // }
+
+    return 1;
 }
 
 // sum the ascii values of each char and find remainder when divided by cache size
@@ -191,16 +193,24 @@ void ParseFile ( int file, struct Cache * cache )
     char * buffer = calloc( 128, sizeof( char ) ); // stores currents string or integer
 
     // read chars from the file
-    while ( read( file, &cur_char, 1 ) )
+    while ( read( file, &cur_char, 1 ) == 1 )
     {
+        // if the current character is a digit or an character
+        // if current character and last character are type
+        // if last character was a delimeter
         if ( isalpha( cur_char ) || isdigit( cur_char ) )
         {
-    
+
             // check if types match and last char wasnt a delimeter
+            // break up word or number, eg. "12wow45" -> [ 12, "wow", 45 ]
+            // flush current contents of buffer to cache
             if ( isalpha( prev_char ) != isalpha( cur_char ) && prev_char != '\0' )
             {
-                fprintf( stderr, "ERROR: Mix of letters and numbers encountered\n" );
-                return exit(1);
+                CachePut( buffer, cache );
+                prev_char = '\0';
+                count = 1;
+                reading = 0;
+                NullBuffer(buffer);
             }
 
             reading = 1;
@@ -256,16 +266,28 @@ int main( int argc, char ** argv )
         fprintf( stderr, "ERROR: Too few arguments\n" );
         return EXIT_FAILURE;
     }
+    
+    // int cache_size = 0;
+    int cache_size = atoi( *(argv + 1) );
+
+    // make sure positive and non zero before continueing
+    if (!cache_size)
+    {
+        fprintf( stderr, "Error: cache size must me postive non-zero integer.\n" );
+        return EXIT_FAILURE;
+    }
 
     // get command line args without using brackets
     // get size of cache and check if valid
-    int cache_size = atoi( *(argv + 1) );
-
-    if ( cache_size <= 0 ) 
-    {
-        fprintf( stderr, "ERROR: Cache size argument must be positive\n" );
-        return EXIT_FAILURE;
-    }
+    // if ( IsInteger( *(argv + 1) ) )
+    // {
+    //     cache_size = atoi( *(argv + 1) );
+    // }
+    // else
+    // {
+        // fprintf( stderr, "Error: IsInteger() failed on first argument\n" );
+        // return EXIT_FAILURE;
+    // }
 
     // initialize cache
     struct Cache * cache = calloc( 1, sizeof( struct Cache ) );
@@ -284,17 +306,21 @@ int main( int argc, char ** argv )
         // test file open from class notes
         if ( open_read == -1 )
         {
-            perror( "ERROR: open() failed" );
-            return EXIT_FAILURE; 
+            FreeCache( cache );
+            fprintf( stderr, "ERROR: open() failed\n" );
+            return EXIT_FAILURE;
         }
-        
-        // load file data into cache
-        ParseFile( open_read, cache );
+        else
+        {
+            // load file data into cache
+            ParseFile( open_read, cache );
+        }
 
         // close file
         close(open_read);
 
         itr++;
+
     }
 
     // print
