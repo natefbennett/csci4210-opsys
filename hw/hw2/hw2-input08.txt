@@ -1,0 +1,9 @@
+cp hw2-lion.txt new-lion.txt
+ls -s hw2-lion.txt new-lion.txt hw2-sleepy.txt
+wc new-lion.txt
+tail -7 hw2-sleepy.txt
+
+
+
+rm new-lion.txt
+exit

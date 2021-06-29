@@ -1,0 +1,6 @@
+ls -a nosuchfile.txt
+wc -l hw2-sleepy.txt hw2-lion.txt
+grep -i lion hw2-lion.txt
+grep -i mouse hw2-sleepy.txt
+grep -i mirth hw2-sleepy.txt
+exit

@@ -1,0 +1,9 @@
+mkdir abcdefgh
+cp hw2-lion.txt abcdefgh
+cd abcdefgh
+ls -s
+cd ..
+ls -s -a hw2-sleepy.txt
+rm abcdefgh/hw2-lion.txt
+rmdir abcdefgh
+exit

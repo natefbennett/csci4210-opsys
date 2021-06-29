@@ -1,0 +1,7 @@
+ls -s hw2-lion.txt hw2-sleepy.txt &
+sleep 6
+wc -l -m hw2-sleepy.txt
+
+
+
+exit

@@ -1,0 +1,5 @@
+touch new-empty-file.txt
+ls -a -s new-empty-file.txt
+head -2 hw2-lion.txt
+rm new-empty-file.txt
+exit
