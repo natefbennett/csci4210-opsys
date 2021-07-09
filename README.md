@@ -1,1 +1,2 @@
-# csci4210-operating-systems
+# CSCI-4210 Operating Systems
+## Dr. David Goldschmidt
