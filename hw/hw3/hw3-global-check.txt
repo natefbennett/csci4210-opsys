@@ -1,0 +1,8 @@
+next_thread_id: 3
+max_squares: 8
+>>SSS
+  S.S
+  SSS<<
+>>SSS
+  S.S
+  SSS<<

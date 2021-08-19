@@ -1,0 +1,337 @@
+==28305== Memcheck, a memory error detector
+==28305== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==28305== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==28305== Command: ./hw3-parallel 4 4 1 1 13
+==28305== 
+MAIN: Solving Sonny's knight's tour problem for a 4x4 board
+MAIN: Sonny starts at row 1 and column 1 (move #1)
+MAIN: 4 possible moves after move #1; creating 4 child threads...
+THREAD 4: 2 possible moves after move #2; creating 2 child threads...
+THREAD 6: 2 possible moves after move #3; creating 2 child threads...
+THREAD 8: 2 possible moves after move #4; creating 2 child threads...
+THREAD 10: 3 possible moves after move #5; creating 3 child threads...
+THREAD 13: Dead end at move #6
+==28305== Thread 13:
+==28305== Invalid read of size 8
+==28305==    at 0x1099A2: ValidMove (hw3.c:118)
+==28305==    by 0x109A42: GetValidMoves (hw3.c:127)
+==28305==    by 0x109BDB: PThreadWorker (hw3.c:157)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a78820 is 16 bytes inside a block of size 32 free'd
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Block was alloc'd at
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109813: CopyBoard (hw3.c:82)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== Invalid read of size 1
+==28305==    at 0x1099AD: ValidMove (hw3.c:118)
+==28305==    by 0x109A42: GetValidMoves (hw3.c:127)
+==28305==    by 0x109BDB: PThreadWorker (hw3.c:157)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a78912 is 2 bytes inside a block of size 4 free'd
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Block was alloc'd at
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109848: CopyBoard (hw3.c:86)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+THREAD 13: Dead end at move #6
+==28305== Invalid read of size 8
+==28305==    at 0x1097C5: FreeBoard (hw3.c:76)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a78810 is 0 bytes inside a block of size 32 free'd
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Block was alloc'd at
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109813: CopyBoard (hw3.c:82)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== Invalid free() / delete / delete[] / realloc()
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a78870 is 0 bytes inside a block of size 4 free'd
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Block was alloc'd at
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109848: CopyBoard (hw3.c:86)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== Invalid free() / delete / delete[] / realloc()
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a78810 is 0 bytes inside a block of size 32 free'd
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Block was alloc'd at
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109813: CopyBoard (hw3.c:82)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+THREAD 4: 2 possible moves after move #2; creating 2 child threads...
+THREAD 15: 2 possible moves after move #3; creating 2 child threads...
+THREAD 16: 3 possible moves after move #4; creating 3 child threads...
+THREAD 19: 3 possible moves after move #6; creating 3 child threads...
+THREAD 23: Dead end at move #7
+THREAD 4: 2 possible moves after move #2; creating 2 child threads...
+THREAD 25: 2 possible moves after move #3; creating 2 child threads...
+THREAD 25: 2 possible moves after move #3; creating 2 child threads...
+THREAD 29: 2 possible moves after move #4; creating 2 child threads...
+THREAD 31: 3 possible moves after move #5; creating 3 child threads...
+THREAD 34: Dead end at move #6
+THREAD 34: Dead end at move #6
+THREAD 34: Dead end at move #6
+THREAD 10: 3 possible moves after move #5; creating 3 child threads...
+THREAD 31: Thread 32 joined (returned 6)
+THREAD 31: Thread 33 joined (returned 6)
+THREAD 31: Thread 34 joined (returned 6)
+THREAD 35: Dead end at move #6
+THREAD 20: THREAD 37: Dead end at move #6
+THREAD 10: Thread 11 joined (returned 6)
+THREAD 6: 2 possible moves after move #3; creating 2 child threads...
+THREAD 38: 3 possible moves after move #4; creating 3 child threads...
+THREAD 27: 2 possible moves after move #4; creating 2 child threads...
+==28305== Thread 30:
+==28305== Invalid read of size 8
+==28305==    at 0x109B08: SetMove (hw3.c:144)
+==28305==    by 0x10A0CD: PThreadWorker (hw3.c:271)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a7e188 is 8 bytes before a block of size 32 alloc'd
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109813: CopyBoard (hw3.c:82)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== Invalid write of size 1
+==28305==    at 0x109B13: SetMove (hw3.c:144)
+==28305==    by 0x10A0CD: PThreadWorker (hw3.c:271)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0xffffffffffffffff is not stack'd, malloc'd or (recently) free'd
+==28305== 
+==28305== 
+==28305== Process terminating with default action of signal 11 (SIGSEGV)
+==28305==  Access not within mapped region at address 0xFFFFFFFFFFFFFFFF
+==28305==    at 0x109B13: SetMove (hw3.c:144)
+==28305==    by 0x10A0CD: PThreadWorker (hw3.c:271)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  If you believe this happened as a result of a stack
+==28305==  overflow in your program's main thread (unlikely but
+==28305==  possible), you can try to increase the size of the
+==28305==  main thread stack using the --main-stacksize= flag.
+==28305==  The main thread stack size used in this run was 8388608.
+==28305== 
+==28305== HEAP SUMMARY:
+==28305==     in use at exit: 12,044 bytes in 236 blocks
+==28305==   total heap usage: 270 allocs, 54 frees, 14,010 bytes allocated
+==28305== 
+==28305== Thread 1:
+==28305== 272 bytes in 1 blocks are possibly lost in loss record 10 of 14
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x40149CA: allocate_dtv (dl-tls.c:286)
+==28305==    by 0x40149CA: _dl_allocate_tls (dl-tls.c:532)
+==28305==    by 0x4868322: allocate_stack (allocatestack.c:622)
+==28305==    by 0x4868322: pthread_create@@GLIBC_2.2.5 (pthread_create.c:660)
+==28305==    by 0x10A5FF: simulate (hw3.c:427)
+==28305==    by 0x10957F: main (hw3-main.c:42)
+==28305== 
+==28305== 1,152 (768 direct, 384 indirect) bytes in 24 blocks are definitely lost in loss record 13 of 14
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109813: CopyBoard (hw3.c:82)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== 9,792 bytes in 36 blocks are possibly lost in loss record 14 of 14
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x40149CA: allocate_dtv (dl-tls.c:286)
+==28305==    by 0x40149CA: _dl_allocate_tls (dl-tls.c:532)
+==28305==    by 0x4868322: allocate_stack (allocatestack.c:622)
+==28305==    by 0x4868322: pthread_create@@GLIBC_2.2.5 (pthread_create.c:660)
+==28305==    by 0x10A10C: PThreadWorker (hw3.c:274)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== LEAK SUMMARY:
+==28305==    definitely lost: 768 bytes in 24 blocks
+==28305==    indirectly lost: 384 bytes in 96 blocks
+==28305==      possibly lost: 10,064 bytes in 37 blocks
+==28305==    still reachable: 828 bytes in 79 blocks
+==28305==         suppressed: 0 bytes in 0 blocks
+==28305== Reachable blocks (those to which a pointer was found) are not shown.
+==28305== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==28305== 
+==28305== ERROR SUMMARY: 61 errors from 10 contexts (suppressed: 0 from 0)
+==28305== 
+==28305== 1 errors in context 1 of 10:
+==28305== Thread 30:
+==28305== Invalid write of size 1
+==28305==    at 0x109B13: SetMove (hw3.c:144)
+==28305==    by 0x10A0CD: PThreadWorker (hw3.c:271)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0xffffffffffffffff is not stack'd, malloc'd or (recently) free'd
+==28305== 
+==28305== 
+==28305== 1 errors in context 2 of 10:
+==28305== Invalid read of size 8
+==28305==    at 0x109B08: SetMove (hw3.c:144)
+==28305==    by 0x10A0CD: PThreadWorker (hw3.c:271)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a7e188 is 8 bytes before a block of size 32 alloc'd
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109813: CopyBoard (hw3.c:82)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== 
+==28305== 4 errors in context 3 of 10:
+==28305== Thread 13:
+==28305== Invalid free() / delete / delete[] / realloc()
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a78810 is 0 bytes inside a block of size 32 free'd
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Block was alloc'd at
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109813: CopyBoard (hw3.c:82)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== 
+==28305== 10 errors in context 4 of 10:
+==28305== Invalid read of size 1
+==28305==    at 0x1099AD: ValidMove (hw3.c:118)
+==28305==    by 0x109A42: GetValidMoves (hw3.c:127)
+==28305==    by 0x109BDB: PThreadWorker (hw3.c:157)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a78912 is 2 bytes inside a block of size 4 free'd
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Block was alloc'd at
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109848: CopyBoard (hw3.c:86)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== 
+==28305== 10 errors in context 5 of 10:
+==28305== Invalid read of size 8
+==28305==    at 0x1099A2: ValidMove (hw3.c:118)
+==28305==    by 0x109A42: GetValidMoves (hw3.c:127)
+==28305==    by 0x109BDB: PThreadWorker (hw3.c:157)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a78820 is 16 bytes inside a block of size 32 free'd
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Block was alloc'd at
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109813: CopyBoard (hw3.c:82)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== 
+==28305== 16 errors in context 6 of 10:
+==28305== Invalid free() / delete / delete[] / realloc()
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a78870 is 0 bytes inside a block of size 4 free'd
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Block was alloc'd at
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109848: CopyBoard (hw3.c:86)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== 
+==28305== 16 errors in context 7 of 10:
+==28305== Invalid read of size 8
+==28305==    at 0x1097C5: FreeBoard (hw3.c:76)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Address 0x4a78810 is 0 bytes inside a block of size 32 free'd
+==28305==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28305==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305==  Block was alloc'd at
+==28305==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28305==    by 0x109813: CopyBoard (hw3.c:82)
+==28305==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28305==    by 0x4867608: start_thread (pthread_create.c:477)
+==28305==    by 0x49A3292: clone (clone.S:95)
+==28305== 
+==28305== ERROR SUMMARY: 61 errors from 10 contexts (suppressed: 0 from 0)
+Segmentation fault (core dumped)

@@ -1,0 +1,1441 @@
+==28358== Memcheck, a memory error detector
+==28358== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==28358== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==28358== Command: ./hw3-parallel 4 4 0 1 1
+==28358== 
+MAIN: Solving Sonny's knight's tour problem for a 4x4 board
+MAIN: Sonny starts at row 0 and column 1 (move #1)
+MAIN: 3 possible moves after move #1; creating 3 child threads...
+THREAD 3: 3 possible moves after move #2; creating 3 child threads...
+THREAD 6: 3 possible moves after move #4; creating 3 child threads...
+THREAD 9: 2 possible moves after move #5; creating 2 child threads...
+THREAD 6: 3 possible moves after move #4; creating 3 child threads...
+THREAD 14: 2 possible moves after move #5; creating 2 child threads...
+THREAD 14: 2 possible moves after move #5; creating 2 child threads...
+THREAD 18: 3 possible moves after move #7; creating 3 child threads...
+THREAD 21: 3 possible moves after move #9; creating 3 child threads...
+THREAD 24: Dead end at move #10
+==28358== Thread 24:
+==28358== Invalid read of size 8
+==28358==    at 0x1099A2: ValidMove (hw3.c:118)
+==28358==    by 0x109A42: GetValidMoves (hw3.c:127)
+==28358==    by 0x109BDB: PThreadWorker (hw3.c:157)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a868 is 8 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== Invalid read of size 1
+==28358==    at 0x1099AD: ValidMove (hw3.c:118)
+==28358==    by 0x109A42: GetValidMoves (hw3.c:127)
+==28358==    by 0x109BDB: PThreadWorker (hw3.c:157)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a912 is 2 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== Invalid read of size 8
+==28358==    at 0x109866: CopyBoard (hw3.c:87)
+==28358==    by 0x109D1F: PThreadWorker (hw3.c:192)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a860 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== Invalid read of size 1
+==28358==    at 0x483F269: strncpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x10988A: CopyBoard (hw3.c:87)
+==28358==    by 0x109D1F: PThreadWorker (hw3.c:192)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a8c0 is 0 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+THREAD 24: Dead end at move #10
+==28358== Invalid read of size 8
+==28358==    at 0x1097C5: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a860 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== Invalid free() / delete / delete[] / realloc()
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a8c0 is 0 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== Invalid free() / delete / delete[] / realloc()
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a860 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+THREAD 3: 3 possible moves after move #2; creating 3 child threads...
+THREAD 21: Thread 22 joined (returned 10)
+THREAD 27: 3 possible moves after move #4; creating 3 child threads...
+THREAD 30: 2 possible moves after move #5; creating 2 child threads...
+THREAD 32: 3 possible moves after move #7; creating 3 child threads...
+THREAD 35: 3 possible moves after move #9; creating 3 child threads...
+THREAD 38: Dead end at move #10
+THREAD 27: 3 possible moves after move #4; creating 3 child threads...
+THREAD 41: 2 possible moves after move #5; creating 2 child threads...
+THREAD 43: 3 possible moves after move #7; creating 3 child threads...
+THREAD 45: 2 possible moves after move #8; creating 2 child threads...
+THREAD 46: 3 possible moves after move #9; creating 3 child threads...
+THREAD 49: Dead end at move #10
+THREAD 49: Dead end at move #10
+THREAD 9: 2 possible moves after move #5; creating 2 child threads...
+THREAD 51: 3 possible moves after move #7; creating 3 child threads...
+THREAD 14: 2 possible moves after move #5; creating 2 child threads...
+THREAD 58: 3 possible moves after move #7; creating 3 child threads...
+THREAD 61: 3 possible moves after move #9; creating 3 child threads...
+THREAD 64: Dead end at move #10
+THREAD 64: Dead end at move #10
+THREAD 64: Dead end at move #10
+THREAD 61: 3 possible moves after move #9; creating 3 child threads...
+THREAD 67: Dead end at move #10
+THREAD 67: Dead end at move #10
+THREAD 61: 3 possible moves after move #9; creating 3 child threads...
+THREAD 70: Dead end at move #10
+THREAD 70: Dead end at move #10
+THREAD 70: Dead end at move #10
+THREAD 11: 3 possible moves after move #7; creating 3 child threads...
+THREAD 73: 3 possible moves after move #9; creating 3 child threads...
+THREAD 76: Dead end at move #10
+THREAD 6: THREAD 73: 3 possible moves after move #9; creating 3 child threads...
+THREAD 79: Dead end at move #10
+THREAD 30: 2 possible moves after move #5; creating 2 child threads...
+THREAD 81: 3 possible moves after move #7; creating 3 child threads...
+3 possible moves after move #4; creating 3 child threads...
+THREAD 87: 2 possible moves after move #5; creating 2 child threads...
+THREAD 87: 2 possible moves after move #5; creating 2 child threads...
+THREAD 91: 3 possible moves after move #7; creating 3 child threads...
+THREAD 94: 3 possible moves after move #9; creating 3 child threads...
+THREAD 97: Dead end at move #10
+THREAD 89: 3 possible moves after move #7; creating 3 child threads...
+THREAD 100: 3 possible moves after move #9; creating 3 child threads...
+THREAD 103: Dead end at move #10
+THREAD 89: 3 possible moves after move #7; creating 3 child threads...
+THREAD 106: 3 possible moves after move #9; creating 3 child threads...
+THREAD 109: Dead end at move #10
+THREAD 109: Dead end at move #10
+THREAD 84: 3 possible moves after move #9; creating 3 child threads...
+THREAD 112: Dead end at move #10
+THREAD 35: 3 possible moves after move #9; creating 3 child threads...
+THREAD 115: Dead end at move #10
+THREAD 35: 3 possible moves after move #9; creating 3 child threads...
+THREAD 118: Dead end at move #10
+THREAD 41: 2 possible moves after move #5; creating 2 child threads...
+THREAD 120: 3 possible moves after move #7; creating 3 child threads...
+THREAD 123: 3 possible moves after move #9; creating 3 child threads...
+THREAD 126: Dead end at move #10
+THREAD 41: 2 possible moves after move #5; creating 2 child threads...
+THREAD 128: THREAD 11: 3 possible moves after move #7; creating 3 child threads...
+THREAD 45: 3 possible moves after move #7; creating 3 child threads...
+THREAD 134: 3 possible moves after move #9; creating 3 child threads...
+THREAD 137: Dead end at move #10
+THREAD 137: Dead end at move #10
+THREAD 49: THREAD 131: 3 possible moves after move #9; creating 3 child threads...
+THREAD 140: Dead end at move #10
+THREAD 131: 3 possible moves after move #9; creating 3 child threads...
+THREAD 143: Dead end at move #10
+THREAD 143: Dead end at move #10
+THREAD 131: Thread 132 joined (returned 10)
+THREAD 54: 3 possible moves after move #9; creating 3 child threads...
+THREAD 146: Dead end at move #10
+THREAD 146: Dead end at move #10
+THREAD 54: 3 possible moves after move #9; creating 3 child threads...
+THREAD 147: Dead end at move #10
+THREAD 58: 3 possible moves after move #7; creating 3 child threads...
+THREAD 54: Thread 55 joined (returned 10)
+THREAD 149: Dead end at move #10
+THREAD 149: Dead end at move #10
+THREAD 152: 3 possible moves after move #9; creating 3 child threads...
+THREAD 155: Dead end at move #10
+THREAD 21: 3 possible moves after move #9; creating 3 child threads...
+THREAD 158: Dead end at move #10
+THREAD 152: Thread 153 joined (returned 10)
+THREAD 21: THREAD 21: Thread 22 joined (returned 10)
+3 possible moves after move #9; creating 3 child threads...
+THREAD 161: Dead end at move #10
+THREAD 161: Dead end at move #10
+THREAD 76: THREAD 73: 3 possible moves after move #9; creating 3 child threads...
+THREAD 164: Dead end at move #10
+THREAD 76: Dead end at move #10
+THREAD 164: Dead end at move #10
+THREAD 84: 3 possible moves after move #9; creating 3 child threads...
+THREAD 167: Dead end at move #10
+THREAD 167: Dead end at move #10
+THREAD 103: Dead end at move #10
+THREAD 81: 3 possible moves after move #7; creating 3 child threads...
+THREAD 168: 3 possible moves after move #9; creating 3 child threads...
+THREAD 173: 2 possible moves after move #10; creating 2 child threads...
+THREAD 175: Dead end at move #13
+THREAD 173: 2 possible moves after move #10; creating 2 child threads...
+THREAD 94: 3 possible moves after move #9; creating 3 child threads...
+THREAD 180: Dead end at move #10
+THREAD 100: 3 possible moves after move #9; creating 3 child threads...
+THREAD 183: Dead end at move #10
+THREAD 87: 2 possible moves after move #5; creating 2 child threads...
+THREAD 185: 3 possible moves after move #7; creating 3 child threads...
+THREAD 106: 3 possible moves after move #9; creating 3 child threads...
+THREAD 191: Dead end at move #10
+THREAD 97: Dead end at move #10
+THREAD 109: Dead end at move #10
+THREAD 94: Thread 95 joined (returned 10)
+THREAD 106: Thread 107 joined (returned 10)
+THREAD 106: Thread 108 joined (returned 10)
+THREAD 106: Thread 109 joined (returned 10)
+THREAD 112: Dead end at move #10
+THREAD 30: 2 possible moves after move #5; creating 2 child threads...
+THREAD 38: Dead end at move #10
+THREAD 115: Dead end at move #10
+THREAD 32: THREAD 35: Thread 36 joined (returned 10)
+THREAD 118: Dead end at move #10
+THREAD 123: THREAD 35: Thread 36 joined (returned 10)
+THREAD 123: 3 possible moves after move #9; creating 3 child threads...
+THREAD 194: THREAD 196: Dead end at move #10
+THREAD 128: 3 possible moves after move #7; creating 3 child threads...
+THREAD 199: 3 possible moves after move #9; creating 3 child threads...
+THREAD 202: Dead end at move #10
+THREAD 202: Dead end at move #10
+THREAD 46: Thread 47 joined (returned 10)
+THREAD 134: 3 possible moves after move #9; creating 3 child threads...
+THREAD 205: Dead end at move #10
+THREAD 131: 3 possible moves after move #9; creating 3 child threads...
+THREAD 208: Dead end at move #10
+THREAD 208: Dead end at move #10
+THREAD 137: Dead end at move #10
+2 possible moves after move #9; creating 2 child threads...
+THREAD 210: Dead end at move #10
+THREAD 210: Dead end at move #10
+THREAD 46: Thread 47 joined (returned 10)
+THREAD 46: Thread 48 joined (returned 10)
+THREAD 43: Thread 44 joined (returned 10)
+THREAD 143: Dead end at move #10
+THREAD 56: Dead end at move #10
+THREAD 131: Thread 133 joined (returned 10)
+THREAD 131: Thread 134 joined (returned 10)
+THREAD 11: Thread 12 joined (returned 10)
+THREAD 152: 3 possible moves after move #9; creating 3 child threads...
+THREAD 67: Dead end at move #10
+THREAD 213: Dead end at move #10
+THREAD 155: Dead end at move #10
+THREAD 61: THREAD 152: THREAD 155: Dead end at move #10
+THREAD 158: Dead end at move #10
+THREAD 21: Thread 23 joined (returned 10)
+THREAD 24: Dead end at move #10
+Dead end at move #10
+THREAD 21: Thread 23 joined (returned 10)
+THREAD 21: Thread 24 joined (returned 10)
+THREAD 164: Dead end at move #10
+THREAD 103: Dead end at move #10
+THREAD 97: Dead end at move #10
+THREAD 94: Thread 96 joined (returned 10)
+THREAD 100: Thread 101 joined (returned 10)
+THREAD 100: Thread 102 joined (returned 10)
+THREAD 100: Thread 103 joined (returned 10)
+THREAD 79: Dead end at move #10
+THREAD 170: 3 possible moves after move #9; creating 3 child threads...
+THREAD 94: 3 possible moves after move #9; creating 3 child threads...
+THREAD 219: Dead end at move #10
+THREAD 219: Dead end at move #10
+THREAD 173: 2 possible moves after move #10; creating 2 child threads...
+THREAD 221: Dead end at move #13
+THREAD 221: Dead end at move #13
+THREAD 79: Dead end at move #10
+THREAD 173: Thread 174 joined (returned 13)
+THREAD 173: Thread 175 joined (returned 13)
+THREAD 216: Dead end at move #10
+THREAD 177: Dead end at move #13
+THREAD 180: Dead end at move #10
+THREAD 170: Thread 171 joined (returned 13)
+THREAD 84: 3 possible moves after move #9; creating 3 child threads...
+THREAD 183: THREAD 222: Dead end at move #10
+THREAD 188: THREAD 84: Thread 85 joined (returned 10)
+THREAD 91: 3 possible moves after move #7; creating 3 child threads...
+THREAD 225: THREAD 226: 3 possible moves after move #8; creating 3 child threads...
+THREAD 191: Dead end at move #10
+2 possible moves after move #9; creating 2 child threads...
+THREAD 232: Dead end at move #10
+THREAD 232: Dead end at move #10
+THREAD 115: Dead end at move #10
+THREAD 27: 3 possible moves after move #4; creating 3 child threads...
+THREAD 126: THREAD 235: THREAD 235: 2 possible moves after move #5; creating 2 child threads...
+THREAD 237: 3 possible moves after move #7; creating 3 child threads...
+Dead end at move #10
+THREAD 3: 3 possible moves after move #2; creating 3 child threads...
+THREAD 243: 3 possible moves after move #4; creating 3 child threads...
+THREAD 246: 2 possible moves after move #5; creating 2 child threads...
+THREAD 248: 3 possible moves after move #7; creating 3 child threads...
+THREAD 251: 3 possible moves after move #9; creating 3 child threads...
+THREAD 254: Dead end at move #10
+THREAD 199: THREAD 243: 3 possible moves after move #4; creating 3 child threads...
+THREAD 257: 2 possible moves after move #5; creating 2 child threads...
+THREAD 259: 3 possible moves after move #7; creating 3 child threads...
+THREAD 262: 3 possible moves after move #9; creating 3 child threads...
+THREAD 265: Dead end at move #10
+THREAD 262: 3 possible moves after move #9; creating 3 child threads...
+THREAD 268: Dead end at move #10
+THREAD 257: 2 possible moves after move #5; creating 2 child threads...
+THREAD 134: 3 possible moves after move #9; creating 3 child threads...
+THREAD 273: Dead end at move #10
+THREAD 270: 3 possible moves after move #7; creating 3 child threads...
+THREAD 273: Dead end at move #10
+THREAD 270: 3 possible moves after move #7; creating 3 child threads...
+THREAD 279: 3 possible moves after move #9; creating 3 child threads...
+THREAD 276: 3 possible moves after move #9; creating 3 child threads...
+THREAD 282: Dead end at move #10
+THREAD 285: Dead end at move #10
+THREAD 202: Dead end at move #10
+THREAD 285: Dead end at move #10
+THREAD 285: Dead end at move #10
+THREAD 282: Dead end at move #10
+THREAD 140: Dead end at move #10
+THREAD 205: Dead end at move #10
+THREAD 208: Dead end at move #10
+THREAD 54: 3 possible moves after move #9; creating 3 child threads...
+THREAD 288: THREAD 288: THREAD 51: 3 possible moves after move #7; creating 3 child threads...
+THREAD 291: 3 possible moves after move #9; creating 3 child threads...
+THREAD 16: 3 possible moves after move #7; creating 3 child threads...
+THREAD 294: 3 possible moves after move #9; creating 3 child threads...
+THREAD 300: Dead end at move #10
+THREAD 294: 3 possible moves after move #9; creating 3 child threads...
+THREAD 303: Dead end at move #10
+THREAD 303: Dead end at move #10
+THREAD 213: Dead end at move #10
+THREAD 61: Thread 62 joined (returned 10)
+THREAD 61: Thread 63 joined (returned 10)
+THREAD 61: Thread 64 joined (returned 10)
+THREAD 18: 3 possible moves after move #7; creating 3 child threads...
+THREAD 304: THREAD 306: 3 possible moves after move #9; creating 3 child threads...
+THREAD 309: Dead end at move #10
+THREAD 309: Dead end at move #10
+THREAD 73: Thread 74 joined (returned 10)
+THREAD 73: Thread 75 joined (returned 10)
+THREAD 73: Thread 76 joined (returned 10)
+THREAD 167: Dead end at move #10
+THREAD 94: Thread 97 joined (returned 10)
+THREAD 84: Thread 85 joined (returned 10)
+THREAD 84: Thread 86 joined (returned 10)
+THREAD 84: Thread 87 joined (returned 10)
+THREAD 216: Dead end at move #10
+THREAD 177: Dead end at move #13
+THREAD 173: Thread 174 joined (returned 13)
+THREAD 173: Thread 175 joined (returned 13)
+==28358== Thread 131:
+==28358== Invalid read of size 8
+==28358==    at 0x1097C5: FreeBoard (hw3.c:76)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4aa4ca0 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== Invalid free() / delete / delete[] / realloc()
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4aa4d00 is 0 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== Invalid free() / delete / delete[] / realloc()
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4aa4ca0 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+THREAD 106: 3 possible moves after move #9; creating 3 child threads...
+==28358== Thread 89:
+==28358== Invalid read of size 8
+==28358==    at 0x109866: CopyBoard (hw3.c:87)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a8dad0 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== Invalid read of size 1
+==28358==    at 0x483F269: strncpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x10988A: CopyBoard (hw3.c:87)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a8db30 is 0 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+THREAD 311: 2 possible moves after move #10; creating 2 child threads...
+THREAD 313: Dead end at move #13
+THREAD 170: Thread 172 joined (returned 13)
+THREAD 314: Thread 315 joined (returned 13)
+THREAD 313: Dead end at move #13
+THREAD 314: Dead end at move #10
+Dead end at move #10
+THREAD 223: THREAD 100: Thread 101 joined (returned 10)
+THREAD 100: 3 possible moves after move #9; creating 3 child threads...
+THREAD 315: Dead end at move #10
+THREAD 188: 3 possible moves after move #9; creating 3 child threads...
+THREAD 320: Dead end at move #10
+THREAD 320: Dead end at move #10
+THREAD 320: Dead end at move #10
+THREAD 100: Thread 101 joined (returned 10)
+THREAD 230: 2 possible moves after move #10; creating 2 child threads...
+THREAD 322: Dead end at move #13
+THREAD 193: 3 possible moves after move #7; creating 3 child threads...
+THREAD 325: 3 possible moves after move #9; creating 3 child threads...
+THREAD 230: Thread 231 joined (returned 13)
+THREAD 106: Thread 107 joined (returned 10)
+THREAD 227: Thread 228 joined (returned 10)
+THREAD 227: Thread 229 joined (returned 10)
+THREAD 35: Thread 37 joined (returned 10)
+THREAD 35: Thread 38 joined (returned 10)
+3 possible moves after move #9; creating 3 child threads...
+THREAD 331: Dead end at move #10
+THREAD 32: Thread 33 joined (returned 10)
+THREAD 331: Dead end at move #10
+THREAD 235: 2 possible moves after move #5; creating 2 child threads...
+THREAD 333: 3 possible moves after move #7; creating 3 child threads...
+THREAD 336: 3 possible moves after move #9; creating 3 child threads...
+THREAD 339: Dead end at move #10
+2 possible moves after move #5; creating 2 child threads...
+THREAD 341: 3 possible moves after move #7; creating 3 child threads...
+THREAD 344: 3 possible moves after move #9; creating 3 child threads...
+THREAD 347: Dead end at move #10
+THREAD 347: Dead end at move #10
+THREAD 240: THREAD 347: Dead end at move #10
+3 possible moves after move #9; creating 3 child threads...
+THREAD 350: Dead end at move #10
+THREAD 344: Thread 345 joined (returned 10)
+THREAD 344: Thread 346 joined (returned 10)
+THREAD 344: Thread 347 joined (returned 10)
+THREAD 43: 3 possible moves after move #7; creating 3 child threads...
+THREAD 246: 2 possible moves after move #5; creating 2 child threads...
+THREAD 355: 3 possible moves after move #7; creating 3 child threads...
+THREAD 358: 3 possible moves after move #9; creating 3 child threads...
+THREAD 361: Dead end at move #10
+THREAD 361: Dead end at move #10
+THREAD 361: Dead end at move #10
+THREAD 251: 3 possible moves after move #9; creating 3 child threads...
+THREAD 358: 3 possible moves after move #9; creating 3 child threads...
+THREAD 364: Dead end at move #10
+THREAD 364: Dead end at move #10
+THREAD 358: Thread 359 joined (returned 10)
+THREAD 358: Thread 360 joined (returned 10)
+THREAD 358: Thread 361 joined (returned 10)
+THREAD 248: 3 possible moves after move #7; creating 3 child threads...
+THREAD 368: 3 possible moves after move #9; creating 3 child threads...
+THREAD 373: 2 possible moves after move #10; creating 2 child threads...
+THREAD 375: Dead end at move #13
+THREAD 373: 2 possible moves after move #10; creating 2 child threads...
+THREAD 377: Dead end at move #13
+THREAD 268: Dead end at move #10
+THREAD 268: Dead end at move #10
+THREAD 262: Thread 263 joined (returned 10)
+THREAD 262: Thread 264 joined (returned 10)
+THREAD 262: Thread 265 joined (returned 10)
+THREAD 257: 2 possible moves after move #5; creating 2 child threads...
+THREAD 259: Thread 260 joined (returned 10)
+THREAD 259: 3 possible moves after move #7; creating 3 child threads...
+THREAD 380: 3 possible moves after move #9; creating 3 child threads...
+THREAD 381: Dead end at move #10
+THREAD 279: Thread 280 joined (returned 10)
+THREAD 279: Thread 281 joined (returned 10)
+THREAD 279: Thread 282 joined (returned 10)
+THREAD 205: Dead end at move #10
+Dead end at move #10
+THREAD 56: THREAD 46: Thread 48 joined (returned 10)
+THREAD 46: Thread 49 joined (returned 10)
+THREAD 131: Thread 132 joined (returned 10)
+THREAD 131: Thread 133 joined (returned 10)
+THREAD 131: Thread 134 joined (returned 10)
+Dead end at move #10
+THREAD 54: Thread 55 joined (returned 10)
+THREAD 291: 3 possible moves after move #9; creating 3 child threads...
+THREAD 291: 3 possible moves after move #9; creating 3 child threads...
+THREAD 389: Dead end at move #10
+THREAD 291: Thread 292 joined (returned 10)
+THREAD 294: 3 possible moves after move #9; creating 3 child threads...
+THREAD 394: Dead end at move #10
+THREAD 297: Dead end at move #10
+THREAD 150: 3 possible moves after move #9; creating 3 child threads...
+THREAD 388: Dead end at move #10
+THREAD 395: Dead end at move #10
+THREAD 213: Dead end at move #10
+THREAD 397: 2 possible moves after move #10; creating 2 child threads...
+THREAD 398: Dead end at move #13
+THREAD 397: Thread 398 joined (returned 13)
+Thread 62 joined (returned 10)
+THREAD 61: Thread 62 joined (returned 10)
+THREAD 61: Thread 63 joined (returned 10)
+THREAD 61: Thread 64 joined (returned 10)
+THREAD 158: Dead end at move #10
+THREAD 306: THREAD 161: Dead end at move #10
+THREAD 309: Dead end at move #10
+THREAD 170: 3 possible moves after move #9; creating 3 child threads...
+THREAD 401: 2 possible moves after move #10; creating 2 child threads...
+==28358== Thread 52:
+==28358== Invalid write of size 1
+==28358==    at 0x109B13: SetMove (hw3.c:144)
+==28358==    by 0x10A0CD: PThreadWorker (hw3.c:271)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4afe5ee is 2 bytes before a block of size 4 alloc'd
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+THREAD 403: Dead end at move #11
+THREAD 180: THREAD 402: Thread 403 joined (returned 11)
+THREAD 314: Dead end at move #10
+THREAD 183: Dead end at move #10
+2 possible moves after move #10; creating 2 child threads...
+THREAD 406: 2 possible moves after move #11; creating 2 child threads...
+THREAD 100: Thread 102 joined (returned 10)
+THREAD 100: Thread 103 joined (returned 10)
+THREAD 188: 3 possible moves after move #9; creating 3 child threads...
+THREAD 409: Dead end at move #10
+THREAD 188: Thread 189 joined (returned 10)
+THREAD 188: Thread 189 joined (returned 10)
+THREAD 188: Thread 190 joined (returned 10)
+THREAD 188: Thread 191 joined (returned 10)
+THREAD 227: 3 possible moves after move #9; creating 3 child threads...
+THREAD 230: 2 possible moves after move #10; creating 2 child threads...
+THREAD 416: Dead end at move #13
+THREAD 112: Dead end at move #10
+THREAD 230: 2 possible moves after move #10; creating 2 child threads...
+THREAD 418: Dead end at move #13
+THREAD 418: Dead end at move #13
+THREAD 230: Thread 231 joined (returned 13)
+THREAD 230: Thread 232 joined (returned 13)
+THREAD 325: 3 possible moves after move #9; creating 3 child threads...
+THREAD 419: Dead end at move #10
+THREAD 328: Dead end at move #10
+THREAD 328: Dead end at move #10
+THREAD 325: Thread 326 joined (returned 10)
+THREAD 331: Dead end at move #10
+THREAD 123: Thread 124 joined (returned 10)
+THREAD 123: Thread 125 joined (returned 10)
+THREAD 123: Thread 126 joined (returned 10)
+Dead end at move #10
+THREAD 339: Dead end at move #10
+THREAD 339: Dead end at move #10
+THREAD 123: Thread 124 joined (returned 10)
+THREAD 341: 3 possible moves after move #7; creating 3 child threads...
+THREAD 195: 2 possible moves after move #10; creating 2 child threads...
+THREAD 425: Dead end at move #11
+THREAD 196: Thread 197 joined (returned 11)
+THREAD 118: Dead end at move #10
+THREAD 35: Thread 37 joined (returned 10)
+THREAD 35: Thread 38 joined (returned 10)
+THREAD 350: Dead end at move #10
+THREAD 32: Thread 34 joined (returned 10)
+THREAD 350: Dead end at move #10
+THREAD 240: THREAD 240: Thread 241 joined (returned 10)
+THREAD 240: Thread 242 joined (returned 10)
+THREAD 240: Thread 243 joined (returned 10)
+3 possible moves after move #9; creating 3 child threads...
+THREAD 428: 2 possible moves after move #10; creating 2 child threads...
+THREAD 429: THREAD 431: Dead end at move #10
+Dead end at move #11
+THREAD 246: ==28358== Thread 134:
+==28358== Invalid read of size 8
+==28358==    at 0x109B08: SetMove (hw3.c:144)
+==28358==    by 0x109C38: PThreadWorker (hw3.c:169)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4b0a968 is 24 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== Invalid write of size 1
+==28358==    at 0x109B13: SetMove (hw3.c:144)
+==28358==    by 0x109C38: PThreadWorker (hw3.c:169)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4b0aaa1 is 1 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+2 possible moves after move #5; creating 2 child threads...
+THREAD 433: 3 possible moves after move #7; creating 3 child threads...
+THREAD 436: 3 possible moves after move #9; creating 3 child threads...
+THREAD 439: Dead end at move #10
+THREAD 436: 3 possible moves after move #9; creating 3 child threads...
+THREAD 442: Dead end at move #10
+THREAD 353: THREAD 353: 3 possible moves after move #9; creating 3 child threads...
+THREAD 445: Dead end at move #10
+THREAD 358: 3 possible moves after move #9; creating 3 child threads...
+THREAD 448: Dead end at move #10
+THREAD 254: Dead end at move #10
+THREAD 448: Dead end at move #10
+THREAD 251: Thread 252 joined (returned 10)
+THREAD 365: Dead end at move #10
+THREAD 358: Thread 359 joined (returned 10)
+THREAD 367: Dead end at move #10
+THREAD 367: Dead end at move #10
+THREAD 251: 3 possible moves after move #9; creating 3 child threads...
+THREAD 450: 2 possible moves after move #10; creating 2 child threads...
+THREAD 453: 2 possible moves after move #11; creating 2 child threads...
+THREAD 455: 2 possible moves after move #12; creating 2 child threads...
+THREAD 457: Dead end at move #15
+THREAD 455: 2 possible moves after move #12; creating 2 child threads...
+THREAD 459: Dead end at move #15
+THREAD 370: 3 possible moves after move #9; creating 3 child threads...
+THREAD 462: Dead end at move #10
+THREAD 457: Dead end at move #15
+THREAD 462: Dead end at move #10
+THREAD 455: Thread 456 joined (returned 15)
+THREAD 455: Thread 457 joined (returned 15)
+THREAD 377: Dead end at move #13
+THREAD 262: 3 possible moves after move #9; creating 3 child threads...
+THREAD 373: Thread 374 joined (returned 13)
+THREAD 465: Dead end at move #10
+THREAD 262: Thread 263 joined (returned 10)
+THREAD 379: 3 possible moves after move #7; creating 3 child threads...
+THREAD 467: 2 possible moves after move #8; creating 2 child threads...
+THREAD 470: 2 possible moves after move #9; creating 2 child threads...
+THREAD 472: 2 possible moves after move #10; creating 2 child threads...
+THREAD 474: 2 possible moves after move #12; creating 2 child threads...
+THREAD 476: Dead end at move #13
+THREAD 276: 3 possible moves after move #9; creating 3 child threads...
+THREAD 479: Dead end at move #10
+THREAD 479: Dead end at move #10
+THREAD 479: Dead end at move #10
+THREAD 383: 3 possible moves after move #9; creating 3 child threads...
+THREAD 482: Dead end at move #10
+THREAD 482: Dead end at move #10
+THREAD 482: Dead end at move #10
+THREAD 199: THREAD 276: Thread 277 joined (returned 10)
+THREAD 276: Thread 278 joined (returned 10)
+THREAD 276: Thread 279 joined (returned 10)
+THREAD 270: Thread 271 joined (returned 10)
+THREAD 134: Thread 135 joined (returned 10)
+THREAD 134: Thread 136 joined (returned 10)
+THREAD 134: Thread 137 joined (returned 10)
+THREAD 134: Thread 135 joined (returned 10)
+THREAD 134: Thread 136 joined (returned 10)
+THREAD 134: Thread 137 joined (returned 10)
+THREAD 128: Thread 129 joined (returned 10)
+THREAD 288: Dead end at move #10
+Dead end at move #10
+THREAD 391: Dead end at move #10
+THREAD 54: Thread 55 joined (returned 10)
+THREAD 54: Thread 56 joined (returned 10)
+THREAD 54: Thread 57 joined (returned 10)
+THREAD 51: Thread 52 joined (returned 10)
+THREAD 388: Dead end at move #10
+THREAD 291: Thread 292 joined (returned 10)
+THREAD 394: Dead end at move #10
+THREAD 297: Dead end at move #10
+THREAD 394: THREAD 291: Thread 293 joined (returned 10)
+THREAD 300: Dead end at move #10
+THREAD 300: Dead end at move #10
+THREAD 294: Thread 295 joined (returned 10)
+THREAD 294: Thread 296 joined (returned 10)
+THREAD 294: Thread 297 joined (returned 10)
+THREAD 397: 2 possible moves after move #10; creating 2 child threads...
+THREAD 484: Dead end at move #13
+THREAD 152: Thread 153 joined (returned 10)
+THREAD 397: Thread 398 joined (returned 13)
+THREAD 399: Dead end at move #13
+Thread 154 joined (returned 10)
+THREAD 397: Thread 399 joined (returned 13)
+THREAD 54: Thread 56 joined (returned 10)
+THREAD 54: Thread 57 joined (returned 10)
+THREAD 61: Thread 63 joined (returned 10)
+THREAD 61: Thread 64 joined (returned 10)
+3 possible moves after move #9; creating 3 child threads...
+THREAD 485: Dead end at move #10
+THREAD 401: 2 possible moves after move #10; creating 2 child threads...
+THREAD 487: 2 possible moves after move #11; creating 2 child threads...
+THREAD 491: 2 possible moves after move #12; creating 2 child threads...
+THREAD 493: Dead end at move #15
+THREAD 493: Dead end at move #15
+THREAD 73: Thread 74 joined (returned 10)
+THREAD 73: Thread 75 joined (returned 10)
+THREAD 73: Thread 76 joined (returned 10)
+THREAD 9: 2 possible moves after move #5; creating 2 child threads...
+THREAD 495: 3 possible moves after move #7; creating 3 child threads...
+THREAD 496: 3 possible moves after move #9; creating 3 child threads...
+THREAD 404: 2 possible moves after move #11; creating 2 child threads...
+THREAD 503: 2 possible moves after move #12; creating 2 child threads...
+THREAD 505: Dead end at move #15
+Dead end at move #10
+THREAD 170: Thread 171 joined (returned 10)
+THREAD 170: Thread 172 joined (returned 10)
+THREAD 314: Thread 316 joined (returned 13)
+THREAD 224: Dead end at move #10
+THREAD 406: 2 possible moves after move #11; creating 2 child threads...
+THREAD 507: 2 possible moves after move #12; creating 2 child threads...
+THREAD 508: Dead end at move #15
+THREAD 509: Dead end at move #15
+THREAD 507: Thread 508 joined (returned 15)
+THREAD 507: Thread 509 joined (returned 15)
+THREAD 191: THREAD 406: Thread 407 joined (returned 15)
+THREAD 89: Thread 90 joined (returned 10)
+THREAD 411: Dead end at move #10
+THREAD 411: Dead end at move #10
+THREAD 38: Dead end at move #10
+THREAD 414: Dead end at move #10
+THREAD 35: Thread 36 joined (returned 10)
+THREAD 35: Thread 37 joined (returned 10)
+THREAD 35: Thread 38 joined (returned 10)
+THREAD 322: THREAD 32: Thread 35 joined (returned 10)
+THREAD 325: 3 possible moves after move #9; creating 3 child threads...
+THREAD 511: 2 possible moves after move #10; creating 2 child threads...
+THREAD 514: 2 possible moves after move #11; creating 2 child threads...
+THREAD 516: 2 possible moves after move #12; creating 2 child threads...
+THREAD 518: Dead end at move #15
+THREAD 516: 2 possible moves after move #12; creating 2 child threads...
+THREAD 520: Dead end at move #15
+THREAD 520: Dead end at move #15
+THREAD 421: Dead end at move #10
+3 possible moves after move #7; creating 3 child threads...
+THREAD 325: Thread 327 joined (returned 10)
+THREAD 521: 3 possible moves after move #9; creating 3 child threads...
+THREAD 524: 2 possible moves after move #10; creating 2 child threads...
+THREAD 526: Dead end at move #13
+THREAD 524: 2 possible moves after move #10; creating 2 child threads...
+THREAD 528: Dead end at move #13
+THREAD 325: Thread 326 joined (returned 10)
+THREAD 325: Thread 327 joined (returned 10)
+THREAD 336: 3 possible moves after move #9; creating 3 child threads...
+THREAD 533: Dead end at move #10
+THREAD 333: 3 possible moves after move #7; creating 3 child threads...
+THREAD 536: 3 possible moves after move #9; creating 3 child threads...
+THREAD 539: Dead end at move #10
+THREAD 536: 3 possible moves after move #9; creating 3 child threads...
+THREAD 542: Dead end at move #10
+THREAD 539: Dead end at move #10
+THREAD 424: 3 possible moves after move #9; creating 3 child threads...
+THREAD 545: Dead end at move #10
+THREAD 424: THREAD 545: Dead end at move #10
+3 possible moves after move #9; creating 3 child threads...
+THREAD 548: Dead end at move #10
+THREAD 424: Thread 425 joined (returned 10)
+THREAD 344: THREAD 237: 3 possible moves after move #7; creating 3 child threads...
+THREAD 551: 3 possible moves after move #9; creating 3 child threads...
+THREAD 426: 2 possible moves after move #11; creating 2 child threads...
+THREAD 556: 2 possible moves after move #12; creating 2 child threads...
+THREAD 558: Dead end at move #15
+THREAD 123: Thread 124 joined (returned 10)
+THREAD 558: Dead end at move #15
+THREAD 430: Dead end at move #13
+THREAD 431: Thread 432 joined (returned 11)
+THREAD 431: Thread 433 joined (returned 13)
+THREAD 556: Thread 557 joined (returned 15)
+THREAD 556: Thread 558 joined (returned 15)
+THREAD 436: 3 possible moves after move #9; creating 3 child threads...
+THREAD 561: Dead end at move #10
+THREAD 433: 3 possible moves after move #7; creating 3 child threads...
+THREAD 564: 3 possible moves after move #9; creating 3 child threads...
+THREAD 567: Dead end at move #10
+THREAD 567: Dead end at move #10
+THREAD 567: Dead end at move #10
+THREAD 439: Dead end at move #10
+THREAD 564: Thread 565 joined (returned 10)
+THREAD 564: Thread 566 joined (returned 10)
+THREAD 564: Thread 567 joined (returned 10)
+3 possible moves after move #9; creating 3 child threads...
+THREAD 570: Dead end at move #10
+THREAD 355: 3 possible moves after move #7; creating 3 child threads...
+THREAD 571: 3 possible moves after move #9; creating 3 child threads...
+THREAD 573: 3 possible moves after move #9; creating 3 child threads...
+THREAD 579: Dead end at move #10
+THREAD 364: Dead end at move #10
+THREAD 358: Thread 360 joined (returned 10)
+THREAD 358: Thread 361 joined (returned 10)
+THREAD 16: THREAD 451: 3 possible moves after move #7; creating 3 child threads...
+THREAD 580: 3 possible moves after move #9; creating 3 child threads...
+THREAD 585: 2 possible moves after move #10; creating 2 child threads...
+THREAD 587: Dead end at move #13
+THREAD 459: THREAD 276: THREAD 373: 2 possible moves after move #10; creating 2 child threads...
+THREAD 589: Dead end at move #13
+THREAD 462: Dead end at move #10
+THREAD 273: Dead end at move #10
+THREAD 370: Thread 371 joined (returned 10)
+THREAD 370: Thread 372 joined (returned 10)
+THREAD 370: Thread 373 joined (returned 10)
+3 possible moves after move #9; creating 3 child threads...
+THREAD 592: Dead end at move #10
+THREAD 373: THREAD 592: Dead end at move #10
+Thread 375 joined (returned 13)
+THREAD 467: 2 possible moves after move #9; creating 2 child threads...
+THREAD 594: Dead end at move #10
+THREAD 594: Dead end at move #10
+THREAD 265: THREAD 468: Thread 469 joined (returned 10)
+THREAD 468: Thread 470 joined (returned 10)
+THREAD 383: 3 possible moves after move #9; creating 3 child threads...
+THREAD 595: Dead end at move #10
+Thread 200 joined (returned 10)
+THREAD 199: Thread 201 joined (returned 10)
+THREAD 199: Thread 202 joined (returned 10)
+THREAD 146: Dead end at move #10
+THREAD 391: THREAD 54: Thread 56 joined (returned 10)
+THREAD 54: Thread 57 joined (returned 10)
+THREAD 46: Thread 47 joined (returned 10)
+THREAD 303: Dead end at move #10
+THREAD 152: THREAD 294: Thread 295 joined (returned 10)
+THREAD 294: Thread 296 joined (returned 10)
+THREAD 294: Thread 297 joined (returned 10)
+Thread 155 joined (returned 10)
+THREAD 58: Thread 59 joined (returned 10)
+THREAD 58: Thread 60 joined (returned 10)
+THREAD 58: Thread 61 joined (returned 10)
+THREAD 21: Thread 24 joined (returned 10)
+THREAD 73: Thread 74 joined (returned 10)
+THREAD 73: Thread 75 joined (returned 10)
+THREAD 73: Thread 76 joined (returned 10)
+THREAD 487: 2 possible moves after move #11; creating 2 child threads...
+THREAD 599: 2 possible moves after move #12; creating 2 child threads...
+THREAD 599: THREAD 601: Dead end at move #15
+THREAD 599: Thread 600 joined (returned 15)
+THREAD 306: Thread 307 joined (returned 10)
+THREAD 489: Dead end at move #10
+THREAD 402: Dead end at move #10
+THREAD 306: Thread 307 joined (returned 10)
+THREAD 306: Thread 308 joined (returned 10)
+THREAD 306: Thread 309 joined (returned 10)
+THREAD 11: Thread 12 joined (returned 10)
+THREAD 11: Thread 13 joined (returned 10)
+THREAD 11: Thread 14 joined (returned 10)
+THREAD 216: Dead end at move #10
+THREAD 505: THREAD 170: Thread 173 joined (returned 10)
+THREAD 175: Dead end at move #13
+THREAD 507: 2 possible moves after move #12; creating 2 child threads...
+THREAD 173: 3 possible moves after move #9; creating 3 child threads...
+THREAD 185: THREAD 604: Dead end at move #10
+THREAD 408: 3 possible moves after move #7; creating 3 child threads...
+THREAD 188: Dead end at move #10
+THREAD 317: Dead end at move #10
+THREAD 188: Thread 190 joined (returned 10)
+THREAD 188: Thread 191 joined (returned 10)
+THREAD 106: Thread 108 joined (returned 10)
+THREAD 106: Thread 109 joined (returned 10)
+THREAD 416: Dead end at move #13
+THREAD 84: THREAD 230: Thread 85 joined (returned 10)
+THREAD 84: Thread 86 joined (returned 10)
+THREAD 84: Thread 87 joined (returned 10)
+THREAD 193: 3 possible moves after move #7; creating 3 child threads...
+THREAD 612: 3 possible moves after move #9; creating 3 child threads...
+THREAD 615: Dead end at move #10
+THREAD 615: Dead end at move #10
+THREAD 421: Dead end at move #10
+THREAD 516: Thread 517 joined (returned 15)
+THREAD 516: Thread 518 joined (returned 15)
+THREAD 325: Thread 328 joined (returned 10)
+THREAD 526: Dead end at move #13
+THREAD 530: 3 possible moves after move #9; creating 3 child threads...
+THREAD 616: Dead end at move #10
+THREAD 618: THREAD 530: Thread 531 joined (returned 10)
+THREAD 336: Thread 337 joined (returned 10)
+THREAD 336: Thread 338 joined (returned 10)
+THREAD 336: Thread 339 joined (returned 10)
+THREAD 545: Dead end at move #10
+THREAD 548: Dead end at move #10
+THREAD 548: Dead end at move #10
+THREAD 424: 3 possible moves after move #9; creating 3 child threads...
+THREAD 621: Dead end at move #10
+THREAD 621: Dead end at move #10
+THREAD 551: 3 possible moves after move #9; creating 3 child threads...
+THREAD 624: Dead end at move #10
+THREAD 624: Dead end at move #10
+THREAD 551: Thread 552 joined (returned 10)
+THREAD 554: Dead end at move #10
+3 possible moves after move #9; creating 3 child threads...
+THREAD 627: Dead end at move #10
+THREAD 624: Dead end at move #10
+THREAD 627: Dead end at move #10
+THREAD 556: 2 possible moves after move #12; creating 2 child threads...
+THREAD 629: Dead end at move #15
+THREAD 554: Dead end at move #10
+THREAD 551: Thread 552 joined (returned 10)
+THREAD 551: Thread 553 joined (returned 10)
+THREAD 353: 3 possible moves after move #9; creating 3 child threads...
+THREAD 561: Dead end at move #10
+THREAD 632: Dead end at move #10
+THREAD 353: Thread 354 joined (returned 10)
+THREAD 442: Dead end at move #10
+THREAD 564: 3 possible moves after move #9; creating 3 child threads...
+THREAD 633: Dead end at move #10
+THREAD 564: Thread 565 joined (returned 10)
+THREAD 439: Dead end at move #10
+THREAD 436: Thread 437 joined (returned 10)
+THREAD 436: Thread 438 joined (returned 10)
+THREAD 436: Thread 439 joined (returned 10)
+THREAD 243: 3 possible moves after move #4; creating 3 child threads...
+THREAD 638: 2 possible moves after move #5; creating 2 child threads...
+THREAD 640: 3 possible moves after move #7; creating 3 child threads...
+THREAD 643: 3 possible moves after move #9; creating 3 child threads...
+THREAD 646: Dead end at move #10
+THREAD 448: Dead end at move #10
+THREAD 646: Dead end at move #10
+THREAD 576: 2 possible moves after move #10; creating 2 child threads...
+THREAD 647: Dead end at move #13
+THREAD 576: Thread 577 joined (returned 13)
+THREAD 648: Dead end at move #13
+THREAD 576: Thread 578 joined (returned 13)
+THREAD 576: 2 possible moves after move #10; creating 2 child threads...
+THREAD 579: Dead end at move #10
+THREAD 650: Dead end at move #13
+THREAD 579: Dead end at move #10
+THREAD 451: Dead end at move #10
+Dead end at move #10
+THREAD 453: 2 possible moves after move #11; creating 2 child threads...
+THREAD 651: Dead end at move #12
+THREAD 585: 2 possible moves after move #10; creating 2 child threads...
+THREAD 653: Dead end at move #13
+THREAD 585: Thread 586 joined (returned 13)
+THREAD 589: Dead end at move #13
+THREAD 373: Thread 374 joined (returned 13)
+THREAD 373: Thread 375 joined (returned 13)
+THREAD 265: Dead end at move #10
+THREAD 465: Dead end at move #10
+THREAD 378: 3 possible moves after move #7; creating 3 child threads...
+==28358== Thread 166:
+==28358== Invalid read of size 8
+==28358==    at 0x109B08: SetMove (hw3.c:144)
+==28358==    by 0x10A0CD: PThreadWorker (hw3.c:271)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4b8f4f8 is 8 bytes before a block of size 32 alloc'd
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== Process terminating with default action of signal 11 (SIGSEGV)
+==28358==  Access not within mapped region at address 0x3
+==28358==    at 0x109B13: SetMove (hw3.c:144)
+==28358==    by 0x10A0CD: PThreadWorker (hw3.c:271)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  If you believe this happened as a result of a stack
+==28358==  overflow in your program's main thread (unlikely but
+==28358==  possible), you can try to increase the size of the
+==28358==  main thread stack using the --main-stacksize= flag.
+==28358==  The main thread stack size used in this run was 8388608.
+==28358== 
+==28358== HEAP SUMMARY:
+==28358==     in use at exit: 154,766 bytes in 4,717 blocks
+==28358==   total heap usage: 6,277 allocs, 2,465 frees, 696,250 bytes allocated
+==28358== 
+==28358== Thread 1:
+==28358== 272 bytes in 1 blocks are possibly lost in loss record 9 of 20
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x40149CA: allocate_dtv (dl-tls.c:286)
+==28358==    by 0x40149CA: _dl_allocate_tls (dl-tls.c:532)
+==28358==    by 0x4868322: allocate_stack (allocatestack.c:622)
+==28358==    by 0x4868322: pthread_create@@GLIBC_2.2.5 (pthread_create.c:660)
+==28358==    by 0x10A5FF: simulate (hw3.c:427)
+==28358==    by 0x10957F: main (hw3-main.c:42)
+==28358== 
+==28358== 19,296 (12,864 direct, 6,432 indirect) bytes in 402 blocks are definitely lost in loss record 19 of 20
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 109,344 bytes in 402 blocks are possibly lost in loss record 20 of 20
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x40149CA: allocate_dtv (dl-tls.c:286)
+==28358==    by 0x40149CA: _dl_allocate_tls (dl-tls.c:532)
+==28358==    by 0x4868322: allocate_stack (allocatestack.c:622)
+==28358==    by 0x4868322: pthread_create@@GLIBC_2.2.5 (pthread_create.c:660)
+==28358==    by 0x10A10C: PThreadWorker (hw3.c:274)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== LEAK SUMMARY:
+==28358==    definitely lost: 12,864 bytes in 402 blocks
+==28358==    indirectly lost: 6,432 bytes in 1,608 blocks
+==28358==      possibly lost: 109,616 bytes in 403 blocks
+==28358==    still reachable: 25,854 bytes in 2,304 blocks
+==28358==         suppressed: 0 bytes in 0 blocks
+==28358== Reachable blocks (those to which a pointer was found) are not shown.
+==28358== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==28358== 
+==28358== ERROR SUMMARY: 5670 errors from 19 contexts (suppressed: 0 from 0)
+==28358== 
+==28358== 1 errors in context 1 of 19:
+==28358== Thread 166:
+==28358== Invalid read of size 8
+==28358==    at 0x109B08: SetMove (hw3.c:144)
+==28358==    by 0x10A0CD: PThreadWorker (hw3.c:271)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4b8f4f8 is 8 bytes before a block of size 32 alloc'd
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 2 errors in context 2 of 19:
+==28358== Thread 134:
+==28358== Invalid write of size 1
+==28358==    at 0x109B13: SetMove (hw3.c:144)
+==28358==    by 0x109C38: PThreadWorker (hw3.c:169)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4b0aaa1 is 1 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 2 errors in context 3 of 19:
+==28358== Invalid read of size 8
+==28358==    at 0x109B08: SetMove (hw3.c:144)
+==28358==    by 0x109C38: PThreadWorker (hw3.c:169)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4b0a968 is 24 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 9 errors in context 4 of 19:
+==28358== Thread 52:
+==28358== Invalid write of size 1
+==28358==    at 0x109B13: SetMove (hw3.c:144)
+==28358==    by 0x10A0CD: PThreadWorker (hw3.c:271)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4afe5ee is 2 bytes before a block of size 4 alloc'd
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 23 errors in context 5 of 19:
+==28358== Thread 131:
+==28358== Invalid free() / delete / delete[] / realloc()
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4aa4ca0 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 92 errors in context 6 of 19:
+==28358== Invalid free() / delete / delete[] / realloc()
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4aa4d00 is 0 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 92 errors in context 7 of 19:
+==28358== Invalid read of size 8
+==28358==    at 0x1097C5: FreeBoard (hw3.c:76)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4aa4ca0 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 158 errors in context 8 of 19:
+==28358== Thread 24:
+==28358== Invalid free() / delete / delete[] / realloc()
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a860 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 192 errors in context 9 of 19:
+==28358== Thread 89:
+==28358== Invalid read of size 8
+==28358==    at 0x109866: CopyBoard (hw3.c:87)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a8dad0 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 282 errors in context 10 of 19:
+==28358== Thread 24:
+==28358== Invalid read of size 1
+==28358==    at 0x1099AD: ValidMove (hw3.c:118)
+==28358==    by 0x109A42: GetValidMoves (hw3.c:127)
+==28358==    by 0x109BDB: PThreadWorker (hw3.c:157)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a912 is 2 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 282 errors in context 11 of 19:
+==28358== Invalid read of size 8
+==28358==    at 0x1099A2: ValidMove (hw3.c:118)
+==28358==    by 0x109A42: GetValidMoves (hw3.c:127)
+==28358==    by 0x109BDB: PThreadWorker (hw3.c:157)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a868 is 8 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 500 errors in context 12 of 19:
+==28358== Invalid read of size 8
+==28358==    at 0x109866: CopyBoard (hw3.c:87)
+==28358==    by 0x109D1F: PThreadWorker (hw3.c:192)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a860 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 632 errors in context 13 of 19:
+==28358== Invalid free() / delete / delete[] / realloc()
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a8c0 is 0 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 632 errors in context 14 of 19:
+==28358== Invalid read of size 8
+==28358==    at 0x1097C5: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a860 is 0 bytes inside a block of size 32 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097E7: FreeBoard (hw3.c:77)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109813: CopyBoard (hw3.c:82)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 768 errors in context 15 of 19:
+==28358== Thread 89:
+==28358== Invalid read of size 1
+==28358==    at 0x483F269: strncpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x10988A: CopyBoard (hw3.c:87)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a8db30 is 0 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x10A243: PThreadWorker (hw3.c:322)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== 
+==28358== 2000 errors in context 16 of 19:
+==28358== Thread 24:
+==28358== Invalid read of size 1
+==28358==    at 0x483F269: strncpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x10988A: CopyBoard (hw3.c:87)
+==28358==    by 0x109D1F: PThreadWorker (hw3.c:192)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Address 0x4a7a8c0 is 0 bytes inside a block of size 4 free'd
+==28358==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x1097CF: FreeBoard (hw3.c:76)
+==28358==    by 0x109DF0: PThreadWorker (hw3.c:214)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358==  Block was alloc'd at
+==28358==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28358==    by 0x109848: CopyBoard (hw3.c:86)
+==28358==    by 0x109FCB: PThreadWorker (hw3.c:251)
+==28358==    by 0x4867608: start_thread (pthread_create.c:477)
+==28358==    by 0x49A3292: clone (clone.S:95)
+==28358== 
+==28358== ERROR SUMMARY: 5670 errors from 19 contexts (suppressed: 0 from 0)
+Segmentation fault (core dumped)
